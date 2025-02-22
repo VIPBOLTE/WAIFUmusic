@@ -97,3 +97,8 @@ async def get_thumb(videoid):
         blurred_background.paste(thum_overlay, (0, 0), thum_overlay)
     except Exception as e:
         print(f"Error opening thum.png overlay: {e}")
+    extra_length = 50  # Increase for more extension
+    line_start_x = (blurred_background.width / 2 - 75) - extra_length
+    line_end_x = (blurred_background.width - 50) + extra_length
+    
+    line_start_y = blurred_background.height / 2 - 40 + 38 + 20
