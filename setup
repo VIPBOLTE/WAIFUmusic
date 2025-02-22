@@ -63,3 +63,31 @@ async def get_thumb(videoid):
     hd_thumbnail = youtube.resize((circle_size, circle_size), Image.ANTIALIAS)
 
     circle_mask = Image.new("L", (circle_size, circle_size), 0)
+    draw_mask = ImageDraw.Draw(circle_mask)
+    draw_mask.ellipse((0, 0, circle_size, circle_size), fill=255)
+    hd_thumbnail.putalpha(circle_mask)
+
+    border_thickness = 10
+    border_size = circle_size + (border_thickness * 2)
+    border_circle = Image.new("RGBA", (border_size, border_size), (0, 0, 0, 255))
+    border_mask = Image.new("L", (border_size, border_size), 0)
+    border_draw = ImageDraw.Draw(border_mask)
+    border_draw.ellipse((0, 0, border_size, border_size), fill=255)
+    border_circle.putalpha(border_mask)
+
+    draw = ImageDraw.Draw(blurred_background)
+    font = ImageFont.truetype("GOKUMUSIC/assets/assets/font.ttf", 30)
+    title_font = ImageFont.truetype("GOKUMUSIC/assets/assets/font3.ttf", 45)
+
+    text_x = 565
+    title1, title2 = truncate(title)
+    draw.text((text_x, 180), title1, fill=(255, 255, 255), font=title_font)
+    draw.text((text_x, 230), title2, fill=(255, 255, 255), font=title_font)
+
+    text_width = font.getlength(duration_text)
+    right_x = blurred_background.width - text_width - 50
+    draw.text((right_x, 400), duration_text, (255, 255, 255), font=font)
+
+    hd_position = (60, 140)
+    blurred_background.paste(border_circle, hd_position, border_circle)
+    blurred_background.paste(hd_thumbnail, (hd_position[0] + border_thickness, hd_position[1] + border_thickness), hd_thumbnail)
