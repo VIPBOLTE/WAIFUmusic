@@ -13,7 +13,21 @@ async def download_image(url, path):
     try:
         async with aiohttp.ClientSession() as session:
             async with session.get(url) as resp:
-@@ -32,49 +31,48 @@
+                    async with aiofiles.open(path, mode="wb") as f:
+                        await f.write(await resp.read())
+                    return path
+    except Exception as e:
+        print(f"Error downloading image: {e}")
+    return None  
+
+def truncate(text):
+    words = text.split(" ")
+    text1, text2 = "", ""
+    for word in words:
+        if len(text1) + len(word) < 30:
+            text1 += " " + word
+        elif len(text2) + len(word) < 30:
+            text2 += " " + word
     return text1.strip(), text2.strip()
 
 async def get_thumb(videoid):
