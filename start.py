@@ -4,7 +4,7 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CallbackContext, CommandHandler, MessageHandler, filters 
 from pymongo import MongoClient 
  
- from shivu import collection, user_collection, shivuu
+ from shivu import collection, user_collection, shivuu, application
  
 # Global variables 
 current_character = {} 
