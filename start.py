@@ -110,10 +110,6 @@ asyncio.sleep(timeout)
     await application.bot.send_message(chat_id, f"Time's up! The character was {character_name}.") 
     del current_character[chat_id] 
  
- 
-# Main function to start the bot 
-def main() -> None:    
- 
     # Command and message handlers 
     application.add_handler(CommandHandler('nguess', nguess)) 
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_guess)) 
