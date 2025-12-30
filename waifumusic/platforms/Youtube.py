@@ -229,8 +229,9 @@ class YouTubeAPI:
             direct = True
             downloaded_file = await loop.run_in_executor(None, audio_dl)
         
-        return downloaded_file, direct                    if e.type == MessageEntityType.URL:
-                        return msg.text[e.offset:e.offset + e.length]
+        return downloaded_file, direct
+        if e.type == MessageEntityType.URL:
+        return msg.text[e.offset:e.offset + e.length]
         return None
 
     async def details(self, link, videoid=False):
