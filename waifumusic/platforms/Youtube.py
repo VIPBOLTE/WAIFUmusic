@@ -69,6 +69,10 @@ class YouTubeAPI:
                     return e.url
         return None
 
+
+    async def url(self, message):
+        return await self.extract_url(message)
+
     async def exists(self, link: str) -> bool:
         return bool(re.search(YT_REGEX, link))
 
