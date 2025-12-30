@@ -262,4 +262,4 @@ class YouTubeAPI:
         except Exception as e:
             LOGGER.exception(f"Download failed → {e}")
             return None
-    
+
