@@ -25,3 +25,4 @@ youtube-search-python
 cachetools
 gitpython
 yt-search-py
+ytmusicapi
