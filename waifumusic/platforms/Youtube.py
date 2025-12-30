@@ -12,8 +12,8 @@ from pyrogram.enums import MessageEntityType
 from pyrogram.types import Message
 from youtubesearchpython.__future__ import VideosSearch
 
-from PURVIMUSIC.utils.database import is_on_off
-from PURVIMUSIC.utils.formatters import time_to_seconds
+from waifumusic.utils.database import is_on_off
+from waifumusic.utils.formatters import time_to_seconds
 
 
 # ================= LOGGER SETUP ================= #
