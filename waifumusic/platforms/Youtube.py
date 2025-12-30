@@ -14,15 +14,7 @@ from youtubesearchpython.__future__ import VideosSearch
 
 from waifumusic.utils.database import is_on_off
 from waifumusic.utils.formatters import time_to_seconds
-
-
-# ================= LOGGER SETUP ================= #
-
-LOGGER = logging.getLogger("PURVI-YT")
-logging.basicConfig(
-    level=logging.INFO,
-    format="[%(asctime)s | %(levelname)s] %(name)s → %(message)s",
-)
+from waifumusic import LOGGER
 
 
 # ================= COOKIE HANDLER ================= #
